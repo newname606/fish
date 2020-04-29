@@ -1,0 +1,69 @@
+<extend name="Public:BaseSave"/>
+<block name="content">
+    <form method="post" action="{:U('Fraction/save')}" enctype="multipart/form-data">
+        <table cellspacing="1" cellpadding="3" width="100%">
+                        <tr>
+                <td class="label">分类编号</td>
+                <td>
+                                        <input type="text" name="sort_id" maxlength="60"
+                           value="{$sort_id}"/>
+                                        <span class="require-field">*</span>
+                </td>
+            </tr>
+
+                        <tr>
+                <td class="label">题目编号</td>
+                <td>
+                                        <input type="text" name="t_id" maxlength="60"
+                           value="{$t_id}"/>
+                                        <span class="require-field">*</span>
+                </td>
+            </tr>
+
+                        <tr>
+                <td class="label">班级编号</td>
+                <td>
+                                        <input type="text" name="class_id" maxlength="60"
+                           value="{$class_id}"/>
+                                        <span class="require-field">*</span>
+                </td>
+            </tr>
+
+                        <tr>
+                <td class="label">班主任编号</td>
+                <td>
+                                        <input type="text" name="headmaster_id" maxlength="60"
+                           value="{$headmaster_id}"/>
+                                        <span class="require-field">*</span>
+                </td>
+            </tr>
+
+                        <tr>
+                <td class="label">总分</td>
+                <td>
+                                        <input type="text" name="point" maxlength="60"
+                           value="{$point}"/>
+                                        <span class="require-field">*</span>
+                </td>
+            </tr>
+
+                        <tr>
+                <td class="label">人数</td>
+                <td>
+                                        <input type="text" name="number" maxlength="60"
+                           value="{$number}"/>
+                                        <span class="require-field">*</span>
+                </td>
+            </tr>
+
+            
+            <tr>
+                <td colspan="2" align="center"><br/>
+                    <input type="hidden" name="id" value="{$id}">
+                    <input type="submit" class="button" value=" 确定 "/>
+                    <input type="reset" class="button" value=" 重置 "/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</block>

@@ -1,0 +1,19 @@
+<extend name="Public:BaseIndex"/>
+<block name="content">
+    <tr>
+        <th>编号</th>
+        <th>班级</th>
+        <th>教师</th>
+        <th>意见</th>
+        <th>提交时间</th>
+    </tr>
+    <volist name="opinions" id="opinion" key="i">
+        <tr>
+            <td align="center">{$i}</td>
+            <td align="center">{$opinion.c_name}</td>
+            <td align="center">{$opinion.t_name}</td>
+            <td align="center">{$opinion.o_name}</td>
+            <td align="center">{$opinion[create_date]}</td>
+        </tr>
+    </volist>
+</block>

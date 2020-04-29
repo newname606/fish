@@ -1,0 +1,27 @@
+<extend name="Public:BaseIndex"/>
+<block name="content">
+    <tr>
+        <th>编号</th>
+        <th>班级</th>
+        <th>教师</th>
+        <th>问题</th>
+        <th>平均分</th>
+        <th>总分</th>
+        <th>人数</th>
+        <th>提交时间</th>
+    </tr>
+    <volist name="points" id="point" key="i">
+        <tr>
+            <td align="center">{$i}</td>
+            <td align="center">{$point.c_name}</td>
+            <td align="center">{$point.t_name}</td>
+            <td align="center">{$point.i_name}</td>
+            <td align="center">{$point.avg}</td>
+            <td align="center">{$point.point}</td>
+            <td align="center">{$point.number}</td>
+            <td align="center">{$point[create_date]}</td>
+        </tr>
+    </volist>
+    <span class="account-area" >总分:{$sum}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <tr><a href="{:U('Intro/opinion',array('class_id'=>$point['class_id'],'teacher_id'=>$point['teacher_id']))}">查看建议</a></tr>
+</block>

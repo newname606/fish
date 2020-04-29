@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ECSHOP 管理中心 </title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="__ADMIN_CSS__/general.css" rel="stylesheet" type="text/css" />
+<link href="__ADMIN_CSS__/main.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h1>
+    <span class="action-span"><a href="{:U('save')}">添加{$title}</a></span>
+    <span class="action-span1"><a href="__GROUP__">ECSHOP 管理中心</a></span>
+    <span id="search_id" class="action-span1"> - {$title}列表 </span>
+    <div style="clear:both"></div>
+</h1>
+<div class="form-div">
+    <form action="" name="searchForm">
+        <!-- 关键字 -->
+        关键字 <input type="text" name="keyword" size="15" />
+        <input type="submit" value=" 搜索 " class="button" />
+    </form>
+</div>
+
+<!-- 商品列表 -->
+<form method="post" action="" name="listForm" onsubmit="">
+    <div class="list-div" id="listDiv">
+        <table cellpadding="3" cellspacing="1">
+            <block name="content">
+
+            </block>
+            <tr>
+                <td align="right" nowrap="true" colspan="6">
+                    {$pageHtml}
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>
+
+<div id="footer">
+    {$PageHtml}
+<br />
+</div>
+</body>
+</html>

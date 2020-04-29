@@ -1,0 +1,53 @@
+<extend name="Public:BaseSave"/>
+<block name="content">
+    <form method="post" action="{:U('Headmaster/save')}" enctype="multipart/form-data">
+        <table cellspacing="1" cellpadding="3" width="100%">
+            <tr>
+                <td class="label">名称</td>
+                <td>
+                    <input type="text" name="name" maxlength="60"
+                           value="{$name}"/>
+                    <span class="require-field">*</span>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="label">部门名称</td>
+                <td>
+                    <select name="dept_id" id="">
+                        <option value="">--请选择--</option>
+                        <volist name="depts" id="dept">
+                            <option value="{$dept.id}">{$dept.name}</option>
+                        </volist>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="label">状态</td>
+                <td>
+                    <label>
+                        <input type="radio" {$status ? 'checked="checked"' : ''}
+                        style="height:15px;width: 20px" name="status"
+                        value="1"/>
+                        是 </label>
+                    <label>
+                        <input type="radio" {$status ? '' : 'checked="checked"'}
+                        style="height:15px;width: 20px" name="status"
+                        value="0"/>
+                        否 </label>
+                    <span class="require-field">*</span>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td colspan="2" align="center"><br/>
+                    <input type="hidden" name="id" value="{$id}">
+                    <input type="submit" class="button" value=" 确定 "/>
+                    <input type="reset" class="button" value=" 重置 "/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</block>

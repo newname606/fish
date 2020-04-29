@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="__HOME_CSS__/index.css" />
+    <link rel="stylesheet" href="__HOME_CSS__/min.ui.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="check-box">
+        <form action="{:U('Index/check')}" method="get">
+          <h3>新华电脑学校问卷调查</h3>
+          <label for="">
+            <span>调查方式:</span>
+            <select name="survey" id="survey">
+              <option value="">--请选择--</option>
+              <volist name="surveys" id="survey">
+                <option value="{$survey.id}">{$survey.name}</option>
+              </volist>
+            </select>
+          </label>
+
+          <label for="" class="hidden_class" style="display: none">
+            <span>班级</span>
+            <select name="class" id="class">
+              <option value="0">--请选择--</option>
+              <volist name="classs" id="class">
+                <option value="{$class.id}">{$class.name}</option>
+              </volist>
+            </select>
+          </label>
+          <label for="" class="hidden_class" style="display: none">
+            <span>教师</span>
+            <select name="teacher" id="teacher">
+              <option value="">--请选择--</option>
+            </select>
+          </label>
+          <button style="width: 100%; cursor: pointer;" type="submit" class="mui-btn mui-btn-primary">
+            提交
+          </button>
+        </form>
+      </div>
+    </div>
+    <script src="__HOME_JS__/jquery-1.8.2.min.js"></script>
+    <script src="__HOME_JS__/min.ui.js"></script>
+    <script type="text/javascript">
+      $(function () {
+          $('#survey').change(function () {
+              if($('#survey').val()=='') {
+                  $(".hidden_class").hide();//隐藏
+              }else{
+                  $(".hidden_class").show();//显示
+              }
+              $('#class').val([0]);//每次用户选择不同的调查方式,就将班级给回复成默认值
+              $('#teacher').empty();
+          });
+          $('#class').change(function () {
+              var $survey_id = $("#survey").val();
+              var $class_id = $("#class").val();
+              $.post("{:U('Index/tcher')}",{survey_id:$survey_id,class_id:$class_id},function(data) {
+                  $('#teacher').empty();
+                  $.each(JSON.parse(data), function(key, val) {
+                      $('#teacher').append('<option value="'+val.id+'">'+val.name+'</option>');
+                  });
+                  return false;
+              });
+          });
+      });
+    </script>
+  </body>
+</html>

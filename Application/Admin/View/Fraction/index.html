@@ -1,0 +1,17 @@
+<extend name="Public:BaseIndex"/>
+<block name="content">
+    <tr>
+        <th>编号</th>
+        <th>月份</th>
+        <th>操作</th>
+    </tr>
+    <volist name="rows" id="row" key="i">
+        <tr>
+            <td align="center">{$i}</td>
+            <td align="center">{$row['create_date']}</td>
+            <td>
+                <a class="ajax-get" href="{:U('Fraction/classs',array('create_time'=>$row['create_date']))}">查询</a>
+            </td>
+        </tr>
+    </volist>
+</block>

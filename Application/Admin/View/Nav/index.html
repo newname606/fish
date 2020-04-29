@@ -1,0 +1,26 @@
+<extend name="Public:BaseIndex"/>
+<block name="content">
+    <tr>
+        <th>编号</th>
+        <th>名称</th>
+        <th>状态</th>
+        <th>添加时间</th>
+        <th>操作</th>
+    </tr>
+    <volist name="rows" id="row">
+        <tr>
+            <td align="center">{$row.id}</td>
+            <td align="center">{$row.name}</td>
+            <td align="center"><a class="ajax-get"
+                                  href="{:U('Status',array('id'=>$row['id'],'status'=>$row['status']))}">
+                <img src="__ADMIN_IMG__/{$row.status}.gif"/>
+            </a></td>
+            <td align="center">{:date('Y-m-d H:i:s',$row[create_time])}</td>
+            <td>
+                <a href="{:U('Nav/save',array('id'=>$row['id']))}">编辑</a>
+                |
+                <a class="ajax-get" href="{:U('Nav/delete',array('id'=>$row['id']))}">删除</a>
+            </td>
+        </tr>
+    </volist>
+</block>

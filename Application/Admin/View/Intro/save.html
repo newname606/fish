@@ -1,0 +1,54 @@
+<extend name="Public:BaseSave"/>
+<block name="content">
+    <form method="post" action="{:U('Intro/save')}" enctype="multipart/form-data">
+        <table cellspacing="1" cellpadding="3" width="100%">
+            <tr>
+                <td class="label">班级编号</td>
+                <td>
+                    <input type="text" name="class_id" maxlength="60" value="{$class_id}"/>
+                    <span class="require-field">*</span>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="label">教师编号</td>
+                <td>
+                    <input type="text" name="teacher_id" maxlength="60" value="{$teacher_id}"/>
+                    <span class="require-field">*</span>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="label">平均分</td>
+                <td>
+                    <input type="text" name="avg" maxlength="60" value="{$avg}"/>
+                    <span class="require-field">*</span>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="label">总分</td>
+                <td>
+                    <input type="text" name="point" maxlength="60" value="{$point}"/>
+                    <span class="require-field">*</span>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="label">人数</td>
+                <td>
+                    <input type="text" name="number" maxlength="60" value="{$number}"/>
+                    <span class="require-field">*</span>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center"><br/>
+                    <input type="hidden" name="id" value="{$id}">
+                    <input type="submit" class="button" value=" 确定 "/>
+                    <input type="reset" class="button" value=" 重置 "/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</block>

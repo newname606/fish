@@ -1,0 +1,21 @@
+<extend name="Public:BaseIndex" />
+<block name="content">
+    <tr>
+        <th>编号</th>
+        <th>班级</th>
+        <th>班主任</th>
+        <th>时间</th>
+        <th>操作</th>
+    </tr>
+    <volist name="css" id="cs" key="i">
+        <tr>
+            <td align="center">{$i}</td>
+            <td align="center">{$cs.c_name}</td>
+            <td align="center">{$cs.h_name}</td>
+            <td align="center">{$cs['create_date']}</td>
+            <td>
+                <a class="ajax-get" href="{:U('Fraction/point',array('class_id'=>$cs['class_id'],'headmaster_id'=>$cs['headmaster_id']))}">查询</a>
+            </td>
+        </tr>
+    </volist>
+</block>

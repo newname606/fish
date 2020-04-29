@@ -1,0 +1,19 @@
+<extend name="Public:BaseIndex"/>
+<block name="content">
+    <tr>
+        <th>编号</th>
+        <th>班级</th>
+        <th>教师</th>
+        <th>时间</th>
+        <th>操作</th>
+    </tr>
+    <volist name="classs" id="cs" key="i">
+        <tr>
+            <td align="center">{$i}</td>
+            <td align="center">{$cs.c_name}</td>
+            <td align="center">{$cs.t_name}</td>
+            <td align="center">{$cs['create_date']}</td>
+            <td><a href="{:U('Intro/point',array('class_id'=>$cs['class_id'],'teacher_id'=>$cs['teacher_id']))}">查询</a></td>
+        </tr>
+    </volist>
+</block>
